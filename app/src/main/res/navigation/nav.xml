@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/scannerFragment">
+
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.bluetooth_b10809038.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="address"
+            android:defaultValue="no address" />
+        <argument
+            android:name="rssi"
+            app:argType="string"
+            android:defaultValue="no rssi" />
+        <argument
+            android:name="timestampNanos"
+            app:argType="string"
+            android:defaultValue="no timestampNanos" />
+        <argument
+            android:name="content"
+            android:defaultValue="no content" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/scannerFragment"
+        android:name="com.example.bluetooth_b10809038.ScannerFragment"
+        android:label="fragment_scanner"
+        tools:layout="@layout/fragment_scanner" >
+        <action
+            android:id="@+id/action_scannerFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    />
+</navigation>
