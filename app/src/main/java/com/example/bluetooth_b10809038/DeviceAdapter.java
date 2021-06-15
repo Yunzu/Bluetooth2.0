@@ -17,6 +17,7 @@ import java.util.HashMap;
 public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.BLEDeviceViewHolder> {
 
     public static ArrayList<BLUDevice> list;
+    public static ArrayList savelist;
     public static HashMap<String, BLUDevice> hashMap;
     private Button detailbutton;
 
