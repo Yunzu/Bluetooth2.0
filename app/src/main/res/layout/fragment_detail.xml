@@ -51,4 +51,20 @@
         android:layout_marginTop="10dp"
         android:text="Save" />
 
+    <TextView
+        android:id="@+id/t1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50px"
+        android:text="Device:"
+        android:textSize="16sp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/save_t2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+         />
+
 </LinearLayout>
