@@ -92,8 +92,8 @@ public class DetailFragment extends Fragment {
         });
     }
 
-    private int QueryId() {
-       c =  mDb.query(
+    private Cursor QueryAll(){
+       return mDb.query(
                 Contract.bluetoothEntry.TABLE_NAME,
                 null,
                 null,
@@ -101,11 +101,13 @@ public class DetailFragment extends Fragment {
                 null,
                 null,
                 Contract.bluetoothEntry.COLUMN_TIMESTAMP);
-       c.moveToLast();
-//       device.deviceName = c.getString(c.getColumnIndex("address"));
-//       device.Rssi = c.getString(c.getColumnIndex("rssi"));
-       return c.getInt(0);
 
+    }
+
+    private int QueryId() {
+       c =  QueryAll();
+       c.moveToLast();
+       return c.getInt(0);
     }
 
     public long addNewDevice(String address, String rssi) {
