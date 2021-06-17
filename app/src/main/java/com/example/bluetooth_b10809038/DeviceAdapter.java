@@ -78,9 +78,9 @@ public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.BLEDeviceV
         }
         void bind(int index){
             BLUDevice device = list.get(index);
-            vAdress.setText(device.deviceName);
-            vRssi.setText(device.Rssi);
-            vTimestamp.setText(device.timestampNanos);
+            vAdress.setText("Address:"+device.deviceName);
+            vRssi.setText("Rssi"+device.Rssi);
+            vTimestamp.setText("TimestampNanos:"+device.timestampNanos);
             detailbutton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

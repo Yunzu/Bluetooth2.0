@@ -8,47 +8,58 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/textView_Detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Detail"
+        android:textSize="18sp"
+        />
+    <TextView
         android:id="@+id/textView_Address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="20px"
+        android:layout_marginHorizontal="10dp"
         android:text="TextView"
-        android:textSize="16sp"/>
+        />
     <TextView
         android:id="@+id/textView_Rssi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="20px"
+        android:layout_marginHorizontal="10dp"
         android:text="TextView"
-        android:textSize="16sp"/>
+        />
 
     <TextView
         android:id="@+id/textView_Timestamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textSize="16sp"/>
+        android:layout_marginHorizontal="10dp"
+        />
     <TextView
         android:id="@+id/textView_Content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textSize="16sp"/>
+        android:layout_marginHorizontal="10dp"
+        />
 
     <TextView
         android:id="@+id/save_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="150px"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
         android:text="Do you want to save this device?" />
 
     <Button
         android:id="@+id/save_button"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:textSize="12sp"
         android:text="Save" />
 
     <TextView
@@ -56,15 +67,50 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50px"
-        android:text="Device:"
-        android:textSize="16sp"
-        android:layout_gravity="center"/>
+        android:text="The latest five devices"
+        android:layout_gravity="center"
+        android:textSize="18sp"/>
 
     <TextView
         android:id="@+id/save_t2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginHorizontal="110px"
+        android:layout_marginVertical="2dp"
          />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="50dp"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView_deltext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID : "
+            />
+        <EditText
+            android:id="@+id/deledittext"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+             />
+
+        <Button
+            android:id="@+id/delbutton"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Delete"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
 
 </LinearLayout>

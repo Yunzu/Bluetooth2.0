@@ -12,17 +12,19 @@
         android:layout_gravity="center"
         android:layout_marginTop="100dp"
         android:gravity="center"
-        android:text="Welcome~"
-        android:textSize="36sp" />
+        android:text="Bluetooth Scanner"
+        android:textSize="30sp"
+        />
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150px"
-        android:layout_marginLeft="150px">
+        android:layout_marginTop="100px"
+        android:layout_marginHorizontal="100px"
+        >
 
         <TableRow
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent">
 
             <TextView
@@ -48,7 +50,7 @@
                 android:id="@+id/t2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Passward:" />
+                android:text="Passward :" />
 
             <EditText
                 android:id="@+id/et2"

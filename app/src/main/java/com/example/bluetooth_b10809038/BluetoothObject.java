@@ -11,6 +11,7 @@ import android.bluetooth.le.ScanCallback;
 import android.bluetooth.le.ScanRecord;
 import android.bluetooth.le.ScanResult;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.widget.Toast;
@@ -40,6 +41,7 @@ public class BluetoothObject {
             Manifest.permission.BLUETOOTH_ADMIN,
             Manifest.permission.BLUETOOTH,
             Manifest.permission.ACCESS_FINE_LOCATION};
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void setupPermissions() {
@@ -84,6 +86,7 @@ public class BluetoothObject {
         if (mBluetoothManager != null) {
             mBluetoothAdapter = mBluetoothManager.getAdapter();
             if (mBluetoothAdapter != null) {
+
                 mBluetoothLeScanner = mBluetoothAdapter.getBluetoothLeScanner();
                 Toast.makeText(mActivity, "Bluetooth started", Toast.LENGTH_SHORT).show();
                 start = true;
@@ -120,7 +123,7 @@ public class BluetoothObject {
             if (address == null || address.trim().length() == 0) {
                 return;
             }
-            mResultAdapter.addDevice("Address : "+address, "Rssi : "+mRssi, "Timestamp : "+timestampNanos,"Content : "+contentData);
+            mResultAdapter.addDevice(address, ""+mRssi, ""+timestampNanos,""+contentData);
             mResultAdapter.notifyDataSetChanged();
         }
     };

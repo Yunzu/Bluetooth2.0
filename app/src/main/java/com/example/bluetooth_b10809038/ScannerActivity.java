@@ -36,6 +36,7 @@ public class ScannerActivity extends AppCompatActivity {
 
 
 
+
         fragment = findViewById(R.id.nav_host_fragment);
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -47,27 +48,4 @@ public class ScannerActivity extends AppCompatActivity {
 
     }
 
-//    private Cursor getAllGuests() {
-//        return mDb.query(
-//                Contract.bluetoothEntry.TABLE_NAME,
-//                null,
-//                null,
-//                null,
-//                null,
-//                null,
-//                Contract.bluetoothEntry.COLUMN_TIMESTAMP
-//        );
-//    }
-//    public void addToDevicelist(String address, String rssi) {
-//        addNewDevice(address,rssi);
-//    }
-
-
-
-//    public long addNewDevice(String address, String rssi) {
-//        ContentValues cv = new ContentValues();
-//        cv.put(Contract.bluetoothEntry.COLUMN_Address, address);
-//        cv.put(Contract.bluetoothEntry.COLUMN_Rssi, rssi);
-//        return mDb.insert(Contract.bluetoothEntry.TABLE_NAME, null, cv);
-//    }
 }

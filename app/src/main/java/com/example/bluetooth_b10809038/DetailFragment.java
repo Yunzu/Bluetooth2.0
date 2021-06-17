@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,14 +27,14 @@ public class DetailFragment extends Fragment {
 
     private BLUDevice device;
     private SQLiteDatabase mDb;
-    private Button savebutton;
-    private TextView a1, a2, a3, a4, a5, a6,a7;
+    private Button savebutton, delbutton;
+    private TextView a1, a2, a3, a4, a5,a7;
+    private EditText e1;
     ScannerActivity scannerActivity;
     String address;
     String rssi;
-
-
-    private int _id;
+    private int count;
+    private int _id = 0;
     Cursor c;
 
     @Override
@@ -42,7 +43,6 @@ public class DetailFragment extends Fragment {
         super.onCreate(savedInstanceState);
         DBHelper dbHelper = new DBHelper(getActivity());
         mDb = dbHelper.getWritableDatabase();
-
 
     }
 
@@ -64,13 +64,15 @@ public class DetailFragment extends Fragment {
             a3 = rootView.findViewById(R.id.textView_Timestamp);
             a4 = rootView.findViewById(R.id.textView_Content);
             a5 = rootView.findViewById(R.id.save_textView);
-            a7 = rootView.findViewById(R.id.t2);
-            a1.setText(address);
-            a2.setText(rssi);
-            a3.setText(timestampNanos);
-            a4.setText(content);
-
+            e1 = rootView.findViewById(R.id.deledittext);
+            a7 = rootView.findViewById(R.id.save_t2);
+            a1.setText("Address:"+address);
+            a2.setText("Rssi:"+rssi);
+            a3.setText("TimestampNanos:"+timestampNanos);
+            a4.setText("Content:"+content);
+            getAllDevice();
         }
+
 
         return rootView;
 
@@ -80,20 +82,36 @@ public class DetailFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
-
         savebutton = (Button) getActivity().findViewById(R.id.save_button);
         savebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addNewDevice(address, rssi);
-                _id = QueryId();
-                a5.setText("Success saved! This device's id is " +_id+"\nDevice total number: "+_id+" ! " );
+                if (savebutton.getText().toString()=="DELETE"){
+                    removeDevice(_id);
+                    a5.setText("Success deleted! This device was delete.\nDevice total number: " + QueryAll().getCount() + " ! ");
+                    savebutton.setText("SAVE");
+                }else{
+                    addNewDevice(address, rssi);
+                    _id = QueryId();
+                    a5.setText("Success saved! This device's id is " +_id+"\nDevice total number: "+QueryAll().getCount()+" ! " );
+                    savebutton.setText("DELETE");
+                }
+                getAllDevice();
+            }
+        });
+
+        delbutton = (Button) getActivity().findViewById(R.id.delbutton);
+        delbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeDevice(Integer.parseInt(e1.getText().toString()));
+                getAllDevice();
             }
         });
     }
 
     private Cursor QueryAll(){
-       return mDb.query(
+        return mDb.query(
                 Contract.bluetoothEntry.TABLE_NAME,
                 null,
                 null,
@@ -103,11 +121,26 @@ public class DetailFragment extends Fragment {
                 Contract.bluetoothEntry.COLUMN_TIMESTAMP);
 
     }
+    private void getAllDevice() {
+        Cursor cAll = QueryAll();
+        int count = QueryAll().getCount();
+        cAll.move(count-5);
+        StringBuilder str = new StringBuilder("");
+        while (cAll.moveToNext()) {        // 逐筆讀出資料
+            str.append("ID : " + cAll.getInt(0)+"   ") ;
+            str.append("Saved time : "+cAll.getString(3) + "\n") ;
+            str.append("Address : " + cAll.getString(1) + "       ") ;
+            str.append("Rssi : "+cAll.getString(2) + "\n") ;
+
+            }
+        a7.setText(str);
+    }
+
 
     private int QueryId() {
-       c =  QueryAll();
-       c.moveToLast();
-       return c.getInt(0);
+        Cursor cid = QueryAll();
+        cid.moveToLast();
+        return cid.getInt(0);
     }
 
     public long addNewDevice(String address, String rssi) {
@@ -118,6 +151,11 @@ public class DetailFragment extends Fragment {
 
         return mDb.insert(Contract.bluetoothEntry.TABLE_NAME, null, cv);
     }
+    private boolean removeDevice(long id) {
+        return mDb.delete(Contract.bluetoothEntry.TABLE_NAME, Contract.bluetoothEntry._ID + "=" + id, null) > 0;
+
+    }
+
 
 
 
