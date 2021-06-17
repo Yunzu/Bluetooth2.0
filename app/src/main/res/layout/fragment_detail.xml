@@ -11,9 +11,11 @@
         android:id="@+id/textView_Detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:text="Detail"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
         android:textSize="18sp"
+        android:gravity="center"
         />
     <TextView
         android:id="@+id/textView_Address"
@@ -51,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginVertical="5dp"
         android:text="Do you want to save this device?" />
 
     <Button
@@ -60,13 +62,19 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="12sp"
-        android:text="Save" />
+        android:text="Save"
+        android:background="@drawable/color_button"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000"
+        android:layout_marginVertical="15dp"/>
 
     <TextView
         android:id="@+id/t1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50px"
         android:text="The latest five devices"
         android:layout_gravity="center"
         android:textSize="18sp"/>
@@ -77,7 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginHorizontal="110px"
-        android:layout_marginVertical="2dp"
+        android:layout_marginVertical="5dp"
          />
 
     <LinearLayout
@@ -96,12 +104,14 @@
             />
         <EditText
             android:id="@+id/deledittext"
-            android:layout_width="50dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-             />
+            android:background="@drawable/edit"
+            android:layout_marginHorizontal="10dp"
+            />
 
         <Button
             android:id="@+id/delbutton"
@@ -109,7 +119,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Delete"
-            android:textSize="12sp"/>
+            android:textSize="12sp"
+            android:background="@drawable/color_button"
+
+            />
     </LinearLayout>
 
 

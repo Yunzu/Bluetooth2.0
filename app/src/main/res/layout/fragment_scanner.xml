@@ -4,19 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ScannerFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/result_recycleview"
         android:layout_width="match_parent"
-        android:layout_height="470dp"
+        android:layout_height="480dp"
         />
     <Button
         android:id="@+id/scanner_button"
         android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/scan"
+        android:background="@drawable/color_button"
+        android:textSize="12sp"
         />
 
 </LinearLayout>
