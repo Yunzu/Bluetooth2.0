@@ -16,17 +16,58 @@
         android:text="Bluetooth Scanner"
         android:textSize="30sp"
         />
+    <TextView
+        android:id="@+id/charging1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Recommend for charging when use."
+        android:textSize="12sp" />
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10px"
+        android:gravity="center"
+        >
+
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/iv_power_increment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="charging_plug_content_desc"
+            android:src="@drawable/ic_power_grey_80px" />
+
+        <TextView
+            android:id="@+id/charging"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Power"
+            android:textSize="12sp" />
+
+
+    </TableRow>
+    </TableLayout>
+
+
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100px"
-        android:layout_marginHorizontal="100px"
+        android:layout_marginHorizontal="10px"
+        android:gravity="center"
         >
 
         <TableRow
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/t1"
@@ -37,32 +78,36 @@
 
             <EditText
                 android:id="@+id/et1"
-                android:layout_width="200dp"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textEmailAddress"
-                android:background="@drawable/edit"/>
+                android:background="@drawable/edit"
+                android:textSize="12sp"/>
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/t2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Passward : "
-                android:layout_marginHorizontal="5dp"/>
+                android:layout_marginHorizontal="5dp"
+                />
 
             <EditText
                 android:id="@+id/et2"
-                android:layout_width="200dp"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPassword"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/edit"/>
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/edit"
+                android:textSize="12sp"/>
         </TableRow>
 
     </TableLayout>
@@ -71,9 +116,11 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="請註冊帳號，才可使用掃描功能。"
         android:layout_gravity="center"
-        android:layout_marginTop="10px"/>
+        android:layout_marginTop="10dp"
+        android:text="I. Turn on bluetooth.\nII. Sign up or log in."
+        android:textSize="12sp" />
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"

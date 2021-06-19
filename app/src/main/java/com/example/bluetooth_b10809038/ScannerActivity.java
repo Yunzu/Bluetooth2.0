@@ -4,6 +4,7 @@ package com.example.bluetooth_b10809038;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -23,7 +24,7 @@ import com.example.bluetooth_b10809038.database.DBHelper;
 public class ScannerActivity extends AppCompatActivity {
     private View fragment;
     private SQLiteDatabase mDb;
-
+    private Fragment scannerFragment;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -34,9 +35,6 @@ public class ScannerActivity extends AppCompatActivity {
         DBHelper dbHelper = new DBHelper(this);
         mDb = dbHelper.getWritableDatabase();
 
-
-
-
         fragment = findViewById(R.id.nav_host_fragment);
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -44,8 +42,7 @@ public class ScannerActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         this.setSupportActionBar(toolbar);
         NavigationUI.setupWithNavController(toolbar, navController, appBarConfiguration);
-
-
     }
+
 
 }
