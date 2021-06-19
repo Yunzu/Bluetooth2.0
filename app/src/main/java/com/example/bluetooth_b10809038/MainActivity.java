@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.example.bluetooth_b10809038.database.Contract;
 import com.example.bluetooth_b10809038.database.DBHelper;
+import com.example.bluetooth_b10809038.utilities.NotificationUtils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.ActionCodeSettings;
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
     @Override
     public void onStart() {
         super.onStart();
@@ -86,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         unregisterReceiver(mChargingReceiver);
+    }
+    public void testNotification(View view) {
+        NotificationUtils.remindUserBecauseCharging(this);
     }
 
     private void createAccount(String email, String password) {
