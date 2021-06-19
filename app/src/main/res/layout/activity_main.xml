@@ -155,13 +155,22 @@
             android:text="sign up"/>
 
 
-        </LinearLayout><Button
+        </LinearLayout>
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="what's the bluetooth scanner?"
+        android:layout_marginTop="100dp"
+        android:textSize="12sp" />
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:onClick="testNotification"
-        android:text="Test Notification"
-    android:layout_marginTop="100dp"
-        android:background="@drawable/color_button"/>
+        android:text="more"
+        android:textSize="12sp"
+    />
 
 </LinearLayout>
